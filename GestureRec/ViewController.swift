@@ -7,24 +7,41 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var ramen: UIImageView!
-    @IBOutlet weak var rice: UIImageView!
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+    
+    let imagePicker = UIImagePickerController()
+    
+    @IBOutlet weak var mainImage: UIImageView!
+    @IBOutlet weak var dress: UIImageView!
+    @IBOutlet weak var stache: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.delegate = self
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.cyan
     }
 
     @IBAction func tapScreenAction(_ sender: UITapGestureRecognizer) {
         var tapLoc = sender.location(in: view)
-        ramen.center = tapLoc
+        mainImage.center = tapLoc
     }
     @IBAction func panAction(_ sender: UIPanGestureRecognizer) {
        var panLoc =  sender.location(in: view)
-        rice.center = panLoc
-    }
+        dress.center = panLoc
+       
     
+    }
+    @IBAction func photoBut(_ sender: Any) {
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    @IBAction func cameraBut(_ sender: Any) {
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true) {
+            self.mainImage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+    }
 }
 
+}
