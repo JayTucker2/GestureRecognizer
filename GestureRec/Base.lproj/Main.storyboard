@@ -76,8 +76,8 @@
                     </view>
                     <connections>
                         <outlet property="dress" destination="Cdm-eP-Eiy" id="cMb-Aa-tvm"/>
+                        <outlet property="mainImage" destination="mFn-U4-Mq1" id="kvC-D7-xnz"/>
                         <outlet property="stache" destination="rdG-J8-kVc" id="8pL-CK-iTD"/>
-                        <outlet property="woody" destination="mFn-U4-Mq1" id="Xdb-xc-lww"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

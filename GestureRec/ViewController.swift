@@ -37,6 +37,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         present(imagePicker, animated: true, completion: nil)
     }
     @IBAction func cameraBut(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+        imagePicker.sourceType = UIImagePickerController.SourceType.camera
+        present(imagePicker, animated: true, completion: nil)
+        }
+        else {
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true) {
