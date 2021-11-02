@@ -29,8 +29,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBAction func panAction(_ sender: UIPanGestureRecognizer) {
        var panLoc =  sender.location(in: view)
         dress.center = panLoc
-       
-    
+    }
+        @IBAction func panAction2(_ sender: UIPanGestureRecognizer) {
+           var panLoc =  sender.location(in: view)
+            stache.center = panLoc
     }
     @IBAction func photoBut(_ sender: Any) {
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
@@ -39,11 +41,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBAction func cameraBut(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera){
         imagePicker.sourceType = UIImagePickerController.SourceType.camera
-        present(imagePicker, animated: true, completion: nil)
         }
         else {
             imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         }
+        present(imagePicker, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true) {
